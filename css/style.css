@@ -21,6 +21,26 @@ body, textarea, input {
   font-family: 'Roboto', sans-serif;
   background-color: var(--body-background-color);
 }
+
+/* button */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  color: var(--main-color);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 3px 5px 3px 0px;
+  margin-top: 10px;
+  margin-left: -3px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: var(--white-color);
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--light-main-color);
 }
 
 
@@ -97,4 +117,74 @@ body, textarea, input {
 
 .mainHeaderBigRow .mainHeaderRowInfo {
   margin-top: -10px;
+}
+
+
+/* card */
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 15px 0 15px;
+  padding: 16px;
+  border-radius: 3px;
+  background-color: var(--white-color);
+  -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+}
+
+.cardTitle {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.cardSmallTitle {
+  margin-top: 15px;
+  margin-bottom: -10px;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.greenTitle {
+  color: var(--main-color);
+}
+
+
+/* singleInput */
+.singleInputContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.singleInputTitle {
+  display: flex;
+  font-size: 18px;
+  width: calc( 100% - 125px );
+  color: var(--main-text-color);
+  background-color: var(--white-color);
+  border-bottom: 1px solid var(--main-text-color);
+}
+
+.singleInput {
+  display: flex;
+  font-size: 18px;
+  text-align: right;
+  width: 97px;
+  margin-right: -6px;
+  color: var(--main-text-color);
+  background-color: var(--white-color);
+  border-bottom: 1px solid var(--main-text-color);
+}
+
+.inputLable {
+  padding-left: 3px;
+  font-size: 18px;
+  color: var(--main-text-color);
+  border-bottom: 1px solid var(--main-text-color);
+}
+
+/* multiInput */
+.multiInputContainer {
+
 }
