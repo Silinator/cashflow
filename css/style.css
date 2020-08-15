@@ -38,7 +38,7 @@ body, textarea, input {
   font-size: 15px;
   cursor: pointer;
   color: var(--white-color);
-  background-color:  var(--dark-main-color);
+  background-color: var(--dark-main-color);
   border-bottom: 2px solid var(--light-main-color);
 }
 
@@ -55,7 +55,7 @@ body, textarea, input {
   width: calc( 100vw - 30px );
   padding: 15px 15px 0px 15px;
   color: var(--white-color);
-  background-color:  var(--main-color);
+  background-color: var(--main-color);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
   -moz-box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
   box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
