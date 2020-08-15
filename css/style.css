@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+body, textarea, input {
+  font-family: 'Roboto', sans-serif;
+}
