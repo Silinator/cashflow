@@ -32,7 +32,7 @@ Vue.component( 'main-header', {
     },
     cashflowText() {
       return this.formatNum( this.cashflow );
-    },
+    }
   },
   methods: {
     formatNum( nStr ) {
