@@ -78,15 +78,15 @@ Vue.component( 'income', {
       }
     },
     computed: {
-      totalIncome() {
+      passiveIncome() {
         const dividendsValue  = this.dividends.reduce( (a, b) => a + parseInt( b.value ), 0 );
         const realEstates     = this.realEstates.reduce( (a, b) => a + parseInt( b.value ), 0 );
         const businesses      = this.businesses.reduce( (a, b) => a + parseInt( b.value ), 0 );
 
-        return this.wage + this.interest + dividendsValue + realEstates + businesses;
+        return this.interest + dividendsValue + realEstates + businesses;
       },
-      passiveIncome() {
-        return this.totalIncome - this.wage;
+      totalIncome() {
+        return this.passiveIncome + this.wage;
       }
     }
   });
