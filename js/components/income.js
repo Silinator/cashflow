@@ -14,13 +14,13 @@ Vue.component( 'income', {
 
       <div class="singleInputContainer">
         <div class="singleInputTitle">Lohn/Gehalt:</div>
-        <input class="singleInput" @change="update('wage', $event)" type="tel" value="0"/>
+        <input class="singleInput" @change="update('wage', $event)" type="tel" :value="wage"/>
         <div class="inputLable">Fr.</div>
       </div>
 
       <div class="singleInputContainer">
         <div class="singleInputTitle">Zinsen:</div>
-        <input class="singleInput" @change="update('interest', $event)" type="tel" value="0"/>
+        <input class="singleInput" @change="update('interest', $event)" type="tel" :value="interest"/>
         <div class="inputLable">Fr.</div>
       </div>
 
