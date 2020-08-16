@@ -24,6 +24,7 @@ const app = new Vue({
       <income/>
       <expenses/>
       <financial-assets/>
+      <obligations/>
     </div>
   `,
   computed: {

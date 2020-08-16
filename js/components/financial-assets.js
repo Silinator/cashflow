@@ -2,9 +2,9 @@ Vue.component( 'financial-assets', {
   data() {
     return {
       savings: 0,
-      shares: [ { name: "", quantity: 0, value: 0 } ],
-      realEstates: [ { name: "", quantity: 0, value: 0 } ],
-      businesses: [ { name: "", quantity: 0, value: 0 } ],
+      shares: [ { name: "", quantity: 0, value: 0, subValue: 0 } ],
+      realEstates: [ { name: "", quantity: 0, value: 0, subValue: 0 } ],
+      businesses: [ { name: "", quantity: 0, value: 0, subValue: 0 } ],
     }
   },
   template: `
@@ -80,12 +80,18 @@ Vue.component( 'financial-assets', {
         this[ field ].push({
           name: "",
           quantity: 0,
-          value: 0
+          value: 0,
+          subValue: 0
         });
 
         if( field !== "shares" ) {
           this.$bus.$emit( 'updateList', field, this[ field ] );
         }
       }
+    },
+    created() {
+      this.$bus.$on( 'updateSubList', ( field, obj ) => {
+        this[ field ] = obj;
+      });
     }
   });
