@@ -23,6 +23,7 @@ const app = new Vue({
 
       <income/>
       <expenses/>
+      <financial-assets/>
     </div>
   `,
   computed: {
@@ -33,6 +34,9 @@ const app = new Vue({
   created() {
     this.$bus.$on( 'update', ( field, value ) => {
       this[ field ] = value;
+    });
+    this.$bus.$on( 'updateList', ( field, obj ) => {
+      console.log( field, obj );
     });
   }
 })

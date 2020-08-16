@@ -143,13 +143,26 @@ body, textarea, input {
 .cardTitle {
   font-size: 40px;
   font-weight: 400;
+  color: var(--main-text-color);
 }
 
 .cardSmallTitle {
   margin-top: 15px;
   margin-bottom: -10px;
-  font-size: 25px;
   font-weight: 400;
+  color: var(--main-text-color);
+}
+
+h2.cardSmallTitle {
+  font-size: 25px;
+}
+
+h3.cardSmallTitle {
+  font-size: 18px;
+}
+
+h3.cardSmallTitle:first-child {
+  font-size: 22px;
 }
 
 .greenTitle {
@@ -163,7 +176,9 @@ body, textarea, input {
 
 /* singleInput */
 .singleInputContainer,
-.doubleInputContainer {
+.doubleInputContainer,
+.largeInputContainer,
+.largedoubleLableInputContainer {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
@@ -214,4 +229,36 @@ body, textarea, input {
   width: 40px;
   margin-right: 5px;
   margin-left: 5px;
+}
+
+
+/* largeMultiInputContainer */
+.inputTitles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputTitles .cardSmallTitle,
+.largeInputContainer .singleInput,
+.largedoubleLableInputContainer .singleInput {
+  width: 120px;
+  margin-right: 0px;
+  text-align: right;
+}
+
+.inputTitles .cardSmallTitle:first-child {
+  text-align: left;
+}
+
+.largeInputContainer .singleInput:nth-child(3),
+.largedoubleLableInputContainer .singleInput:nth-child(2),
+.largedoubleLableInputContainer .singleInput:nth-child(4) {
+  width: 97px;
+  margin-right: -6px;
+}
+
+.inputTitles .cardSmallTitle:first-child,
+.largeInputContainer .singleInputTitle,
+.largedoubleLableInputContainer .singleInputTitle {
+  width: calc( 100% - 250px );
 }
