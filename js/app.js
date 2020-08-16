@@ -36,8 +36,5 @@ const app = new Vue({
     this.$bus.$on( 'update', ( field, value ) => {
       this[ field ] = value;
     });
-    this.$bus.$on( 'updateList', ( field, obj ) => {
-      console.log( field, obj );
-    });
   }
 })
