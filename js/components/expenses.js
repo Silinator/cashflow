@@ -69,7 +69,6 @@ Vue.component( 'expenses', {
     },
     methods: {
       update( index, subField, event ) {
-        console.log( event.target.value );
         this.fields[ index ][ subField ] = parseInt( event.target.value );
       }
     },
