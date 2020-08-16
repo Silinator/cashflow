@@ -48,6 +48,8 @@ body, textarea, input {
 
 .navi {
   display: flex;
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 25px;
 }
@@ -76,6 +78,7 @@ body, textarea, input {
   justify-content: center;
   flex-direction: column;
   width: calc( 100vw - 30px );
+  margin-top: 25px;
   padding: 15px 15px 0px 15px;
   color: var(--white-color);
   background-color: var(--main-color);
@@ -133,6 +136,10 @@ body, textarea, input {
   box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
 }
 
+.card:last-child {
+  margin: 25px 15px 25px 15px;
+}
+
 .cardTitle {
   font-size: 40px;
   font-weight: 400;
@@ -149,9 +156,14 @@ body, textarea, input {
   color: var(--main-color);
 }
 
+.redTitle {
+  color: var(--accent-color);
+}
+
 
 /* singleInput */
-.singleInputContainer {
+.singleInputContainer,
+.doubleInputContainer {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
@@ -166,7 +178,8 @@ body, textarea, input {
   border-bottom: 1px solid var(--main-text-color);
 }
 
-.singleInput {
+.singleInput,
+.doubleInput {
   display: flex;
   font-size: 18px;
   text-align: right;
@@ -184,7 +197,21 @@ body, textarea, input {
   border-bottom: 1px solid var(--main-text-color);
 }
 
-/* multiInput */
-.multiInputContainer {
 
+/* doubleInputContainer */
+.doubleInputContainer .singleInputTitle {
+  width: calc( 100% - 165px );
+  color: var(--main-text-color);
+  background-color: var(--white-color);
+  border-bottom: 1px solid var(--main-text-color);
+}
+
+.doubleInputContainer .singleInput {
+  margin-right: 0px;
+}
+
+.doubleInputContainer .doubleInput {
+  width: 40px;
+  margin-right: 5px;
+  margin-left: 5px;
 }

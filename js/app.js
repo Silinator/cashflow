@@ -6,7 +6,8 @@ const app = new Vue({
   data() {
     return {
       totalIncome: 0,
-      passiveIncome: 0
+      passiveIncome: 0,
+      totalExpenses: 0
     }
   },
   bus,
@@ -20,13 +21,11 @@ const app = new Vue({
 
       <main-header :passiveIncome="passiveIncome" :totalIncome="totalIncome" :totalExpenses="totalExpenses" :cashflow="cashflow" />
 
-      <income />
+      <income/>
+      <expenses/>
     </div>
   `,
   computed: {
-    totalExpenses() {
-      return 3814; // test val
-    },
     cashflow() {
       return this.totalIncome - this.totalExpenses;
     }
