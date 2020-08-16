@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# 2020-08-16 16:17 v1.0
+
+CACHE:
+js/vue.js
+js/app.js
+js/components/main-header.js
+js/components/income.js
+js/components/expenses.js
+js/components/financial-assets.js
+js/components/obligations.js
+css/style.css
+css/roboto-font.css
+css/material-font.css
+font/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2
+
+NETWORK:
+*
