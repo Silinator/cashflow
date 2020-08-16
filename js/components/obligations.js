@@ -27,8 +27,8 @@ Vue.component( 'obligations', {
           value: 0,
         }
       ],
-      realEstates: [ { name: "", value: 0 } ],
-      businesses: [ { name: "", value: 0 } ]
+      realEstates: [],
+      businesses: []
     }
   },
   template: `
@@ -48,7 +48,6 @@ Vue.component( 'obligations', {
           <input class="singleInput" @change="updateMulti('realEstates', index, 'subValue', $event)" type="tel" :value="realEstate.subValue"/>
           <div class="inputLable">Fr.</div>
         </div>
-        <div class="btn" @click="add('realEstates')"><span class="material-icons">add</span> Hinzufügen</div>
       </div>
 
       <div class="multiInputContainer">
@@ -58,7 +57,6 @@ Vue.component( 'obligations', {
           <input class="singleInput" @change="updateMulti('businesses', index, 'subValue', $event)" type="tel" :value="business.subValue"/>
           <div class="inputLable">Fr.</div>
         </div>
-        <div class="btn" @click="add('businesses')"><span class="material-icons">add</span> Hinzufügen</div>
       </div>
     </div>
   `,

@@ -93,5 +93,9 @@ Vue.component( 'financial-assets', {
       this.$bus.$on( 'updateSubList', ( field, obj ) => {
         this[ field ] = obj;
       });
+    },
+    mounted() {
+      this.$bus.$emit( 'updateList', 'realEstates', this.realEstates );
+      this.$bus.$emit( 'updateList', 'businesses', this.businesses );
     }
   });
