@@ -36,13 +36,13 @@ Vue.component( 'obligations', {
       <h1 class="cardTitle">Verbindlichkeiten</h1>
 
       <div v-for="( field, index ) in fields" class="singleInputContainer">
-        <div class="singleInputTitle">{{field.name}}:</div>
+        <div class="singleInputTitle">{{field.name}}</div>
         <input class="singleInput" @change="update(index, 'value', $event)" type="tel" :value="field.value"/>
         <div class="inputLable">Fr.</div>
       </div>
 
       <div class="multiInputContainer">
-        <h2 class="cardSmallTitle">Immobilien-Hypotheken:</h2>
+        <h2 class="cardSmallTitle">Immobilien-Hypotheken</h2>
         <div v-for="( realEstate, index ) in realEstates" class="singleInputContainer">
           <div class="singleInputTitle">{{realEstate.name}}</div>
           <input class="singleInput" @change="updateMulti('realEstates', index, 'subValue', $event)" type="tel" :value="realEstate.subValue"/>
@@ -51,7 +51,7 @@ Vue.component( 'obligations', {
       </div>
 
       <div class="multiInputContainer">
-        <h2 class="cardSmallTitle">Verbindlichkeiten (Geschäft):</h2>
+        <h2 class="cardSmallTitle">Verbindlichkeiten (Geschäft)</h2>
         <div v-for="( business, index ) in businesses" class="singleInputContainer">
           <div class="singleInputTitle">{{business.name}}</div>
           <input class="singleInput" @change="updateMulti('businesses', index, 'subValue', $event)" type="tel" :value="business.subValue"/>

@@ -13,19 +13,19 @@ Vue.component( 'income', {
       <h1 class="cardTitle greenTitle">Einkommen</h1>
 
       <div class="singleInputContainer">
-        <div class="singleInputTitle">Lohn/Gehalt:</div>
+        <div class="singleInputTitle">Lohn/Gehalt</div>
         <input class="singleInput" @change="update('wage', $event)" type="tel" :value="wage"/>
         <div class="inputLable">Fr.</div>
       </div>
 
       <div class="singleInputContainer">
-        <div class="singleInputTitle">Zinsen:</div>
+        <div class="singleInputTitle">Zinsen</div>
         <input class="singleInput" @change="update('interest', $event)" type="tel" :value="interest"/>
         <div class="inputLable">Fr.</div>
       </div>
 
       <div class="multiInputContainer">
-        <h2 class="cardSmallTitle">Dividenden:</h2>
+        <h2 class="cardSmallTitle">Dividenden</h2>
         <div v-for="( dividend, index ) in dividends" class="singleInputContainer">
           <input class="singleInputTitle" @change="updateMulti('dividends', index, 'name', $event)" type="text" :value="dividend.name"/>
           <input class="singleInput" @change="updateMulti('dividends', index, 'value', $event)" type="tel" :value="dividend.value"/>
@@ -35,7 +35,7 @@ Vue.component( 'income', {
       </div>
 
       <div class="multiInputContainer">
-        <h2 class="cardSmallTitle">Immobilien:</h2>
+        <h2 class="cardSmallTitle">Immobilien</h2>
         <div v-for="( realEstate, index ) in realEstates" class="singleInputContainer">
           <input class="singleInputTitle" @change="updateMulti('realEstates', index, 'name', $event)" type="text" :value="realEstate.name"/>
           <input class="singleInput" @change="updateMulti('realEstates', index, 'value', $event)" type="tel" :value="realEstate.value"/>
@@ -45,7 +45,7 @@ Vue.component( 'income', {
       </div>
 
       <div class="multiInputContainer">
-        <h2 class="cardSmallTitle">Geschäfte:</h2>
+        <h2 class="cardSmallTitle">Geschäfte</h2>
         <div v-for="( business, index ) in businesses" class="singleInputContainer">
           <input class="singleInputTitle" @change="updateMulti('businesses', index, 'name', $event)" type="text" :value="business.name"/>
           <input class="singleInput" @change="updateMulti('businesses', index, 'value', $event)" type="tel" :value="business.value"/>

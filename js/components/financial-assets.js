@@ -12,16 +12,16 @@ Vue.component( 'financial-assets', {
       <h1 class="cardTitle">Vermögenswerte</h1>
 
       <div class="singleInputContainer">
-        <div class="singleInputTitle">Ersparnisse:</div>
+        <div class="singleInputTitle">Ersparnisse</div>
         <input class="singleInput" @change="update('savings', $event)" type="tel" :value="savings"/>
         <div class="inputLable">Fr.</div>
       </div>
 
       <div class="largeMultiInputContainer">
         <div class="inputTitles">
-          <h3 class="cardSmallTitle">Aktien/Fonds/CDs:</h3>
-          <h3 class="cardSmallTitle">Anzahl Anteile:</h3>
-          <h3 class="cardSmallTitle">Kosten/Anteil:</h3>
+          <h3 class="cardSmallTitle">Aktien/Fonds/CDs</h3>
+          <h3 class="cardSmallTitle">Anteile</h3>
+          <h3 class="cardSmallTitle">Kosten/Anteil</h3>
         </div>
         <div v-for="( share, index ) in shares" class="largeInputContainer">
           <input class="singleInputTitle" @change="updateMulti('shares', index, 'name', $event)" type="text" :value="share.name"/>
@@ -34,9 +34,9 @@ Vue.component( 'financial-assets', {
 
       <div class="largeMultiInputContainer">
         <div class="inputTitles">
-          <h3 class="cardSmallTitle">Immobilien:</h3>
-          <h3 class="cardSmallTitle">Anzahlung:</h3>
-          <h3 class="cardSmallTitle">Kosten:</h3>
+          <h3 class="cardSmallTitle">Immobilien</h3>
+          <h3 class="cardSmallTitle">Anzahlung</h3>
+          <h3 class="cardSmallTitle">Kosten</h3>
         </div>
         <div v-for="( realEstate, index ) in realEstates" class="largedoubleLableInputContainer">
           <input class="singleInputTitle" @change="updateMulti('realEstates', index, 'name', $event)" type="text" :value="realEstate.name"/>
@@ -50,9 +50,9 @@ Vue.component( 'financial-assets', {
 
       <div class="largeMultiInputContainer">
         <div class="inputTitles">
-          <h3 class="cardSmallTitle">Geschäfte:</h3>
-          <h3 class="cardSmallTitle">Anzahlung:</h3>
-          <h3 class="cardSmallTitle">Kosten:</h3>
+          <h3 class="cardSmallTitle">Geschäfte</h3>
+          <h3 class="cardSmallTitle">Anzahlung</h3>
+          <h3 class="cardSmallTitle">Kosten</h3>
         </div>
         <div v-for="( business, index ) in businesses" class="largedoubleLableInputContainer">
           <input class="singleInputTitle" @change="updateMulti('businesses', index, 'name', $event)" type="text" :value="business.name"/>

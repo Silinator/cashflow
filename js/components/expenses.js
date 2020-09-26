@@ -55,7 +55,7 @@ Vue.component( 'expenses', {
       <h1 class="cardTitle redTitle">Ausgaben</h1>
 
       <div v-for="( field, index ) in fields" :class="field.quantity === null ? 'singleInputContainer' : 'doubleInputContainer'">
-        <div class="singleInputTitle">{{field.name}}:</div>
+        <div class="singleInputTitle">{{field.name}}</div>
         <input v-if="field.quantity !== null" class="doubleInput" @change="update(index, 'quantity', $event)" type="tel" :value="field.quantity"/>
         <input class="singleInput" @change="update(index, 'value', $event)" type="tel" :value="field.value"/>
         <div class="inputLable">Fr.</div>
