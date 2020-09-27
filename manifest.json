@@ -10,7 +10,7 @@
  "orientation": "any",
  "icons": [
   {
-   "src": "img/icons/android-icon-192x192.png",
+   "src": "img/icons/favicon-192x192.png",
    "type": "image/png",
    "sizes": "192x192"
   },
