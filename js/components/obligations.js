@@ -61,16 +61,49 @@ Vue.component( 'obligations', {
     </div>
   `,
     methods: {
+      save() {
+        localStorage.obligations = JSON.stringify({
+          fields: this.fields,
+          realEstates: this.realEstates,
+          businesses: this.businesses
+        });
+      },
       update( index, subField, event ) {
         this.fields[ index ][ subField ] = parseInt( event.target.value );
+
+        this.save();
       },
       updateMulti( field, index, subField, event ) {
         this[ field ][ index ][ subField ] = subField === "subValue" ? parseInt( event.target.value ) : event.target.value;
+
+        this.save();
       }
     },
     created() {
-      this.$bus.$on( 'updateList', ( field, obj ) => {
+      this.$bus.$on( 'addList', ( field, obj ) => {
         this[ field ] = obj;
+
+        this.save();
+      });
+
+      this.$bus.$on( 'updateList', ( field, obj ) => {
+        const self = this;
+
+        for( var i = 0; i < self[ field ].length; i++ ) {
+          self[ field ][ i ].name = obj[ i ].name;
+        }
+
+        this.save();
+      });
+
+      this.$bus.$on( 'loadFromSave', () => {
+        if( localStorage.obligations ) {
+          const { fields, realEstates, businesses } = JSON.parse( localStorage.obligations );
+
+          this.fields = fields;
+          this.realEstates = realEstates;
+          this.businesses = businesses;
+        }
       });
     }
   });

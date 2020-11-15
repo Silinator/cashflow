@@ -64,17 +64,32 @@ Vue.component( 'income', {
       }
     },
     methods: {
+      save() {
+        localStorage.income = JSON.stringify({
+          wage: this.wage,
+          interest: this.interest,
+          dividends: this.dividends,
+          realEstates: this.realEstates,
+          businesses: this.businesses
+        });
+      },
       update( field, event ) {
         this[ field ] = parseInt( event.target.value );
+
+        this.save();
       },
       updateMulti( field, index, subField, event ) {
         this[ field ][ index ][ subField ] = subField === "value" ? parseInt( event.target.value ) : event.target.value;
+
+        this.save();
       },
       add( field ) {
         this[ field ].push({
           name: "",
           value: 0
         });
+
+        this.save();
       }
     },
     computed: {
@@ -88,5 +103,18 @@ Vue.component( 'income', {
       totalIncome() {
         return this.passiveIncome + this.wage;
       }
+    },
+    created() {
+      this.$bus.$on( 'loadFromSave', () => {
+        if( localStorage.income ) {
+          const { wage, interest, dividends, realEstates, businesses } = JSON.parse( localStorage.income );
+
+          this.wage = wage;
+          this.interest = interest;
+          this.dividends = dividends;
+          this.realEstates = realEstates;
+          this.businesses = businesses;
+        }
+      });
     }
   });

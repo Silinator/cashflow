@@ -68,13 +68,29 @@ Vue.component( 'expenses', {
       }
     },
     methods: {
+      save() {
+        localStorage.expenses = JSON.stringify({
+          fields: this.fields
+        });
+      },
       update( index, subField, event ) {
         this.fields[ index ][ subField ] = parseInt( event.target.value );
+
+        this.save();
       }
     },
     computed: {
       totalExpenses() {
         return this.fields.reduce( (a, b) => a + parseInt( b.value * ( b.quantity !== null ? b.quantity : 1 )  ), 0 );
       },
+    },
+    created() {
+      this.$bus.$on( 'loadFromSave', () => {
+        if( localStorage.expenses ) {
+          const { fields } = JSON.parse( localStorage.expenses );
+
+          this.fields = fields;
+        }
+      });
     }
   });

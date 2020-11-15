@@ -66,8 +66,18 @@ Vue.component( 'financial-assets', {
     </div>
   `,
     methods: {
+      save() {
+        localStorage.financialAssets = JSON.stringify({
+          savings: this.savings,
+          shares: this.shares,
+          realEstates: this.realEstates,
+          businesses: this.businesses
+        });
+      },
       update( field, event ) {
         this[ field ] = parseInt( event.target.value );
+
+        this.save();
       },
       updateMulti( field, index, subField, event ) {
         this[ field ][ index ][ subField ] = subField === "value" ? parseInt( event.target.value ) : event.target.value;
@@ -75,6 +85,8 @@ Vue.component( 'financial-assets', {
         if( field !== "shares" ) {
           this.$bus.$emit( 'updateList', field, this[ field ] );
         }
+
+        this.save();
       },
       add( field ) {
         this[ field ].push({
@@ -85,17 +97,28 @@ Vue.component( 'financial-assets', {
         });
 
         if( field !== "shares" ) {
-          this.$bus.$emit( 'updateList', field, this[ field ] );
+          this.$bus.$emit( 'addList', field, this[ field ] );
         }
+
+        this.save();
       }
     },
     created() {
-      this.$bus.$on( 'updateSubList', ( field, obj ) => {
-        this[ field ] = obj;
+      this.$bus.$on( 'loadFromSave', () => {
+        if( localStorage.financialAssets ) {
+          const { savings, shares, realEstates, businesses } = JSON.parse( localStorage.financialAssets );
+
+          this.savings = savings;
+          this.shares = shares;
+          this.realEstates = realEstates;
+          this.businesses = businesses;
+        }
       });
     },
     mounted() {
-      this.$bus.$emit( 'updateList', 'realEstates', this.realEstates );
-      this.$bus.$emit( 'updateList', 'businesses', this.businesses );
-    }
+      if( !localStorage.obligations ) {
+        this.$bus.$emit( 'addList', 'realEstates', this.realEstates );
+        this.$bus.$emit( 'addList', 'businesses', this.businesses );
+      }
+    },
   });

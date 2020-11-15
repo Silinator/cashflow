@@ -54,9 +54,32 @@ function createVueApp() {
         return this.totalIncome - this.totalExpenses;
       }
     },
-    created() {
+    methods: {
+      save() {
+        localStorage.mainInfos = JSON.stringify({
+          totalIncome: this.totalIncome,
+          passiveIncome: this.passiveIncome,
+          totalExpenses: this.totalExpenses
+        });
+      },
+
+      loadFromSave() {
+        if( localStorage.mainInfos ) {
+          const { totalIncome, passiveIncome, totalExpenses } = JSON.parse( localStorage.mainInfos );
+
+          this.totalIncome = totalIncome;
+          this.passiveIncome = passiveIncome;
+          this.totalExpenses = totalExpenses;
+        }
+      },
+    },
+    mounted() {
+      this.loadFromSave();
+      this.$bus.$emit( 'loadFromSave' );
+
       this.$bus.$on( 'update', ( field, value ) => {
         this[ field ] = value;
+        this.save();
       });
     }
   });
